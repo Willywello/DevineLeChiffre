@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Devine le chiffre</title>
+
+
+</head>
+
+<style>
+#vie{
+background-image:url("coeur.png");
+width:1000px;
+height:100px;
+margin-left:200px
+	
+}
+
+#div{border:blue solid 2px;
+	width:400px;
+	margin:auto;
+	margin-top:200px;
+	padding:25px;
+	}
+	
+	#div2{background-image:url("maxresdefault.jpg");
+	width:1280px;
+	height: 720px;
+	margin: auto;
+		margin-left: 200px;
+	opacity: 0;
+	position: absolute; top:200;}
+	
+	#div3{background-image:url("ban10.jpg");
+	width:800px;
+	height: 640px;
+	margin: auto;
+		margin-left: 400px;
+	opacity: 0;
+	position: absolute; top:200;}
+	
+
+	
+	
+#t1{color:rebeccapurple
+}
+	#t2{color: white;
+		
+}
+
+#div4{opacity:5;
+background-color:#069;
+position:absolute;top:0px;
+margin:auto;
+margin-left:100px; 
+padding:500px;
+}
+
+#re{margin-left:100px;
+margin-top:325px;
+}
+
+#div5{background-image:url("think.png");
+width:420px;
+	height: 420px;
+	margin: auto;
+		margin-left: 400px;
+	opacity: 0;
+	position: absolute; top:700px}
+
+</style>
+
+<body >
+
+<body background="background.png">
+
+<div id="div" ><h1 id="t1">Devine le chiffre de 1 à 100.</h1>
+<input type="number" id="choix">
+<input type="button" value="clique ici" onClick="valider()" onMouseOver="Sur()" onMouseOut="Sur2()">
+
+
+
+</div>
+<div id="div2"><input type="button" value= "Recommencer?" onClick='window.location.reload(false)' id="re">  </div>
+	<div id="div3"><h1 id="t2">Félicitations!!!</h1><input type="button" value= "Recommencer?" onClick='window.location.reload(false)'>  </div>
+<div id="vie"></div>
+
+<div id="div4"><input type="button" value="facile" onClick="easy()" onMouseOver="papy()">
+<input type="button" value="difficile" onClick="hard()" onMouseOver="flowey()"></div>
+
+<div id="div5"></div>
+
+
+
+<script>
+var bonchiffre=Math.round(Math.random()*100)
+
+var coups=0
+
+var monson=new Audio()
+monson.src="undertale-soul-shatter.mp3"
+var monson2=new Audio()
+monson2.src="00002a5b.mp3"
+var monson3=new Audio()
+monson3.src="oh-yes-undertale.mp3"
+	var monson4=new Audio()
+monson4.src="dogtrill.mp3"
+	var monson5=new Audio()
+monson5.src="floweyhitsound.mp3"
+
+function valider(){
+	coups=coups+1
+var user=document.getElementById("choix").value; 
+if(user==0){alert("Écrivez un chiffre.")}
+else if(user < bonchiffre){alert("trop petit mon kiki")}
+if(user > bonchiffre){alert("trop grand mon beau")}
+if(user == bonchiffre){alert("Bravo! Tu as deviné le chiffre en "+ coups+" essais!")
+monson3.play()
+	document.getElementById("div3").style.top=0	
+					   document.getElementById("div3").style.opacity=5
+					   document.getElementById("vie").style.width=0
+}
+if(user==0) {}
+else if(user != bonchiffre){
+life=life-100
+document.getElementById("vie").style.width=life+"px"
+monson.play()
+}
+if(life==0){
+	alert("wasted, le bon chiffre était "+ bonchiffre)
+	monson2.play()
+document.getElementById("div2").style.opacity=5
+document.getElementById("div2").style.top=0
+}
+	
+
+console.log("bon chiffre:"+ bonchiffre)
+	console.log("choix:"+ choix.value)
+	console.log("nombre d'essais:"+ coups)
+}
+
+function easy(){life=1000
+document.getElementById("div4").style.opacity=0
+document.getElementById("div4").style.padding=0
+document.getElementById("vie").style.width=life+"px"
+monson4.play()}
+
+function hard(){life=500
+document.getElementById("div4").style.opacity=0
+document.getElementById("div4").style.padding=0
+document.getElementById("vie").style.width=life+"px"
+monson5.play()}	
+
+	function papy(){document.getElementById("div4").style.backgroundImage="url('tenor.gif')"
+				   }
+	
+	function flowey(){document.getElementById("div4").style.backgroundImage="url('flowey.gif')"
+					 }
+					 
+					 function Sur()
+					{document.getElementById("div5").style.opacity=5
+					document.getElementById("div5").style.top=400+"px" }
+function Sur2(){document.getElementById("div5").style.opacity=0
+					document.getElementById("div5").style.top=700+"px"}
+</script>
+
+
+
+
+
+</body></body>
+</html>
